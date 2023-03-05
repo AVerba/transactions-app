@@ -1,15 +1,28 @@
-.auth__container{
+.auth__container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 30px;
   color: #010101;
   background-color: #D9AFD9;
   background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
 
 }
-.form{
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: #55868C;
+  font-size: 40px;
+  animation-name: moveInFromLeft;
+  animation-duration: 3s;
+
+}
+
+.form {
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +31,9 @@
   border-radius: 20px;
   background-color: #97D9E1;
   animation-name: moveInFromLeft;
-  animation-duration: 3s;
+  animation-duration: 6s;
 }
+
 @keyframes moveInFromLeft {
   0% {
     opacity: 0;
