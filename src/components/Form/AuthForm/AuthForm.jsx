@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 export const AuthForm = () => {
 
   return (
-   <Form>
+   <Form className={styles.form}>
      <Form.Group>
        <Form.Label></Form.Label>
        <Form.Control/>

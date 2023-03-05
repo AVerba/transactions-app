@@ -4,10 +4,10 @@ export const AuthView = () => {
 
   return(
     <div className={styles.auth__container}>
-      <>
+      <div className={styles.form}>
         Transactions App
-        <div className={styles.form}>Form</div>
-      </>
+        {/*<div className={styles.form}>Form</div>*/}
+      </div>
     </div>
   )
 
