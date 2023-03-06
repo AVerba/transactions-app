@@ -1,18 +1,19 @@
 import styles from './AuthForm.module.scss';
 import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import cx from 'classnames';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
 import YupPassword from 'yup-password';
 import {useState} from "react";
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {Loader} from "../../Loader";
+
 YupPassword(Yup);
 
-export const AuthForm = ({ className}) => {
+export const AuthForm = ({className}) => {
   const classList = cx(styles.authForm, className);
 
   const initState = {
@@ -45,7 +46,7 @@ export const AuthForm = ({ className}) => {
     register,
     resetField,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
   } = useForm({
     mode: 'onTouched',
     reValidateMode: 'onChange',
@@ -73,14 +74,61 @@ export const AuthForm = ({ className}) => {
 
   return (
     <>
-      {loaderState && <Loader />}
-      <Form className={classList}>
-        <p>Trans App</p>
-        <Form.Group>
-          <Form.Label></Form.Label>
-          <Form.Control/>
-          <Form.Text></Form.Text>
+      {loaderState && <Loader/>}
+      <Form className={classList}
+            onSubmit={handleSubmit(onRegister, onError)}
+      >
+        <Form.Group className={styles.emailGroup} controlId="formBasicEmail">
+          <Form.Label className={styles.label}>E-mail</Form.Label>
+          <Form.Control
+            className={styles.input}
+            type="email"
+            placeholder={"Enter email"}
+            {...register('email')}
+          />
+
+          {errors.email && errors.email.type === 'required' && (
+            <Form.Text className={styles.tooltip}>
+              <span className={styles.dotTooltip}>*</span>
+              {errors.email.message}
+            </Form.Text>
+          )}
         </Form.Group>
+
+        <Form.Group className={styles.passGroup} controlId="formBasicPassword">
+          <Form.Label className={styles.label}>Password</Form.Label>
+          <Form.Control
+            className={styles.input}
+            autoComplete="off"
+            type="password"
+            placeholder={"Enter password"}
+            {...register('password')}
+          />
+          {errors.password && errors.password.type === 'required' && (
+            <Form.Text className={styles.tooltip}>
+              <span className={styles.dotTooltip}>*</span>
+              {errors.password.message}
+            </Form.Text>
+          )}
+        </Form.Group>
+        <div className={styles.controlBar}>
+          <Button
+            className={styles.loginButton}
+            variant="primary"
+            type="button"
+            onClick={handleSubmit(onLogin, onError)}
+          >
+            Sign In
+          </Button>
+          <Button
+            className={styles.registerButton}
+            variant="primary"
+            type="submit"
+          >
+            Sign Up
+          </Button>
+        </div>
+
       </Form>
     </>
 
