@@ -16,7 +16,7 @@
   padding: 0;
   color: #55868C;
   font-size: 40px;
-  animation-name: moveInFromLeft;
+  animation-name: moveInFromTop;
   animation-duration: 3s;
 
 }
@@ -30,14 +30,27 @@
   height: 800px;
   border-radius: 20px;
   background-color: #97D9E1;
-  animation-name: moveInFromLeft;
+  animation-name: moveInFromBottom;
   animation-duration: 6s;
 }
 
-@keyframes moveInFromLeft {
+@keyframes moveInFromTop {
   0% {
     opacity: 0;
     transform: translateY(-100px);
+  }
+  80% {
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY( 2000px);
   }
   80% {
     transform: translateY(30px);
