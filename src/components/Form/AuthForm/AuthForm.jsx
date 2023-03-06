@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import YupPassword from 'yup-password';
 import {useState} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {Loader} from "../../Loader";
 YupPassword(Yup);
 
 export const AuthForm = ({ className}) => {
@@ -18,6 +19,7 @@ export const AuthForm = ({ className}) => {
     email: '',
     password: '',
   };
+  const [loaderState, setLoaderState] = useState(false);
   const [initialValues, setInitialValues] = useState(initState);
 
   const validationSchema = Yup.object().shape({
@@ -70,14 +72,18 @@ export const AuthForm = ({ className}) => {
 
 
   return (
-   <Form className={classList}>
-     <p>Trans App</p>
-     <Form.Group>
-       <Form.Label></Form.Label>
-       <Form.Control/>
-       <Form.Text></Form.Text>
-     </Form.Group>
-   </Form>
+    <>
+      {loaderState && <Loader />}
+      <Form className={classList}>
+        <p>Trans App</p>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Control/>
+          <Form.Text></Form.Text>
+        </Form.Group>
+      </Form>
+    </>
+
   )
 }
 
