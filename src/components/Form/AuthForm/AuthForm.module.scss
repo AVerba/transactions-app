@@ -21,17 +21,17 @@
 }
 
 .label {
-  font-size: 11px;
-  font-family: 'Roboto';
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: rgb(0, 0, 0);
-  line-height: 3;
+  line-height: 1.1;
   margin-bottom: 12px;
+  color:#ffff;
 }
 .mobInput {
   width: 240px;
   height: 50px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   padding-left: 19px;
@@ -53,9 +53,9 @@
 .input {
   composes: mobInput;
 
-  width: 258px;
+  width: 390px;
   height: 50px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   padding-left: 19px;
@@ -75,7 +75,7 @@
 .tooltip {
   position: absolute;
   top: 108px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -93,9 +93,10 @@
 }
 
 .controlBar {
-  width: 259px;
+  width: 390px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+
 }
 .loginButton {
   width: 125px;
