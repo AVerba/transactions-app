@@ -10,6 +10,7 @@ import YupPassword from 'yup-password';
 import {useState} from "react";
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {Loader} from "../../Loader";
+import {Google} from "../../Google";
 
 YupPassword(Yup);
 
@@ -78,6 +79,7 @@ export const AuthForm = ({className}) => {
       <Form className={classList}
             onSubmit={handleSubmit(onRegister, onError)}
       >
+        <Google/>
         <Form.Group className={styles.emailGroup} controlId="formBasicEmail">
           <Form.Label className={styles.label}>E-mail</Form.Label>
           <Form.Control
